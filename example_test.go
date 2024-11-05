@@ -2,8 +2,8 @@ package ews_test
 
 import (
 	"fmt"
-	. "github.com/mhewedy/ews"
-	"github.com/mhewedy/ews/ewsutil"
+	. "github.com/ZPCA96/ews"
+	"github.com/ZPCA96/ews/ewsutil"
 	"io/ioutil"
 	"math"
 	"os"
@@ -60,7 +60,7 @@ func Test_Example(t *testing.T) {
 
 func testSendEmail(c Client) error {
 	return ewsutil.SendEmail(c,
-		[]string{"mhewedy@gmail.com", "someone@else.com"},
+		[]string{"ZPCA96@gmail.com", "someone@else.com"},
 		"An email subject",
 		"The email body, as plain text",
 	)
@@ -69,7 +69,7 @@ func testSendEmail(c Client) error {
 func testCreateCalendarItem(c Client) error {
 	attendee := make([]Attendee, 0)
 	attendee = append(attendee,
-		Attendee{Mailbox: Mailbox{EmailAddress: "mhewedy@mhewedy.onmicrosoft.com"}},
+		Attendee{Mailbox: Mailbox{EmailAddress: "ZPCA96@ZPCA96.onmicrosoft.com"}},
 	)
 	attendees := make([]Attendees, 0)
 	attendees = append(attendees, Attendees{Attendee: attendee})
@@ -97,7 +97,7 @@ func testGetUserAvailability(c Client) error {
 	mb = append(mb, MailboxData{
 		Email: Email{
 			Name:        "",
-			Address:     "mhewedy@mhewedy.onmicrosoft.com",
+			Address:     "ZPCA96@ZPCA96.onmicrosoft.com",
 			RoutingType: "SMTP",
 		},
 		AttendeeType:     AttendeeTypeRequired,
@@ -105,7 +105,7 @@ func testGetUserAvailability(c Client) error {
 	}, MailboxData{
 		Email: Email{
 			Name:        "",
-			Address:     "example2@mhewedy.onmicrosoft.com",
+			Address:     "example2@ZPCA96.onmicrosoft.com",
 			RoutingType: "SMTP",
 		},
 		AttendeeType:     AttendeeTypeRoom,
@@ -158,15 +158,15 @@ func testListUsersEvents(c Client) error {
 
 	eventUsers := []ewsutil.EventUser{
 		{
-			Email:        "mhewedy@mhewedy.onmicrosoft.com",
+			Email:        "ZPCA96@ZPCA96.onmicrosoft.com",
 			AttendeeType: AttendeeTypeRequired,
 		},
 		{
-			Email:        "example@mhewedy.onmicrosoft.com",
+			Email:        "example@ZPCA96.onmicrosoft.com",
 			AttendeeType: AttendeeTypeRequired,
 		},
 		{
-			Email:        "room001@mhewedy.onmicrosoft.com",
+			Email:        "room001@ZPCA96.onmicrosoft.com",
 			AttendeeType: AttendeeTypeResource,
 		},
 	}
@@ -186,7 +186,7 @@ func testListUsersEvents(c Client) error {
 func testCreateEvent(c Client) error {
 
 	return ewsutil.CreateEvent(c,
-		[]string{"mhewedy@mhewedy.onmicrosoft.com", "example2@mhewedy.onmicrosoft.com"},
+		[]string{"ZPCA96@ZPCA96.onmicrosoft.com", "example2@ZPCA96.onmicrosoft.com"},
 		[]string{},
 		"An Event subject",
 		"An Event body, as plain text",
@@ -199,11 +199,11 @@ func testCreateEvent(c Client) error {
 func testCreateHTMLEvent(c Client) error {
 
 	return ewsutil.CreateHTMLEvent(c,
-		[]string{"mhewedy@mhewedy.onmicrosoft.com", "example@mhewedy.onmicrosoft.com"},
+		[]string{"ZPCA96@ZPCA96.onmicrosoft.com", "example@ZPCA96.onmicrosoft.com"},
 		[]string{},
 		"An Event subject",
 		`An Event body, as HTML <br/><br/><br/><div style="color: gray; font-size: x-small;">
-		Sent by <a style="color: gray; text-decoration: none;" href="https://github.com/mhewedy/mego"
+		Sent by <a style="color: gray; text-decoration: none;" href="https://github.com/ZPCA96/mego"
 		target="_blank">MEGO</a> - the meeting organizer</div>`,
 		"Room 55",
 		time.Now().Add(24*time.Hour),
@@ -253,7 +253,7 @@ func testFindPeople(c Client) error {
 
 func testGetUserPhoto(c Client) error {
 
-	bytes, err := ewsutil.GetUserPhoto(c, "mhewedy@mhewedy.onmicrosoft.com")
+	bytes, err := ewsutil.GetUserPhoto(c, "ZPCA96@ZPCA96.onmicrosoft.com")
 
 	if err != nil {
 		return err
