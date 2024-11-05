@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"crypto/tls"
 	"fmt"
-	"github.com/Azure/go-ntlmssp"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httputil"
+
+	"github.com/Azure/go-ntlmssp"
 )
 
 const (
@@ -95,7 +96,7 @@ func (c *client) SendAndReceive(body []byte) ([]byte, error) {
 		return nil, NewError(resp)
 	}
 
-	respBytes, err := ioutil.ReadAll(resp.Body)
+	respBytes, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}

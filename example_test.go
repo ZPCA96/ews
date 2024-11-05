@@ -2,13 +2,13 @@ package ews_test
 
 import (
 	"fmt"
-	. "github.com/ZPCA96/ews"
-	"github.com/ZPCA96/ews/ewsutil"
-	"io/ioutil"
 	"math"
 	"os"
 	"testing"
 	"time"
+
+	. "github.com/ZPCA96/ews"
+	"github.com/ZPCA96/ews/ewsutil"
 )
 
 func Test_Example(t *testing.T) {
@@ -259,7 +259,7 @@ func testGetUserPhoto(c Client) error {
 		return err
 	}
 
-	err = ioutil.WriteFile("/tmp/file.png", bytes, os.ModePerm)
+	err = os.WriteFile("/tmp/file.png", bytes, os.ModePerm)
 	fmt.Println("written to: /tmp/file.png")
 
 	return err
