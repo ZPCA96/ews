@@ -2,14 +2,19 @@ package ewsutil
 
 import "github.com/ZPCA96/ews"
 
+const (
+	Text string = "text"
+	HTML string = "HTML"
+)
+
 // SendEmail helper method to send Message
-func SendEmail(c ews.Client, to []string, subject, body string) error {
+func SendEmail(c ews.Client, to []string, subject, body string, bodyType string) error {
 
 	m := ews.Message{
 		ItemClass: "IPM.Note",
 		Subject:   subject,
 		Body: ews.Body{
-			BodyType: "HTML",
+			BodyType: bodyType,
 			Body:     []byte(body),
 		},
 		Sender: ews.OneMailbox{

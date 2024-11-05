@@ -62,7 +62,7 @@ func testSendEmail(c Client) error {
 	return ewsutil.SendEmail(c,
 		[]string{"ZPCA96@gmail.com", "someone@else.com"},
 		"An email subject",
-		"The email body, as plain text",
+		"The email body, as plain text", ewsutil.HTML,
 	)
 }
 
