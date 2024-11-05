@@ -9,7 +9,7 @@ func SendEmail(c ews.Client, to []string, subject, body string) error {
 		ItemClass: "IPM.Note",
 		Subject:   subject,
 		Body: ews.Body{
-			BodyType: "Text",
+			BodyType: "HTML",
 			Body:     []byte(body),
 		},
 		Sender: ews.OneMailbox{
